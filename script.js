@@ -1,5 +1,5 @@
 toggleAll(true);
-var freesims, paidsims;
+let freesims, paidsims;
 
 freesims = ['Aston', 'Brighton', 'Carlisle', 'Chicago L', 'Derby', 'Exeter', 'Kings Cross', 'Lancing', 'Liverpool Lime St', 'London Liverpool St', 'Llangollen', 'LUL Victoria Line',
         'North East Wales', 'North Wales Coastal', 'Oxted', 'Peterborough', 'Royston', 'Saltley', 'Stafford', 'Swindon', 'Waterloo', 'Wembley Sub', 'Westbury'];
@@ -24,15 +24,15 @@ function run() {
 
     let scaleofproblems = ['None', 'Low', 'Medium', 'High']; //constant array for sims which use this
 
-    var paidindex = -1;
-    var freeindex = -1;
+    let paidindex = -1;
+    let freeindex = -1;
 
     checkSimParameters();
 
     if (identical(paidsims) && identical(freesims)) { //check if everything is an X, based on checkSimParameters
         alert("You have no simulations enabled!");
     } else {
-        var index = getRandomInt(validSims(freesims) + validSims(paidsims));
+        let index = getRandomInt(validSims(freesims) + validSims(paidsims));
         if (index >= validSims(freesims)) {
             do {
                 paidindex = Math.floor(Math.random() * paidsims.length);
@@ -596,7 +596,7 @@ function run() {
             default:
                 break;
         }
-        var finalstring = "";
+        let finalstring = "";
         if (paidindex == -1)
             finalstring += "<b>SIMULATION: </b>" + freesims[freeindex] + "<br>";
         else if (freeindex == -1)
@@ -639,7 +639,7 @@ function run() {
             finalstring += "<br>";
         }
         if (misc1 != -1) {
-            var toshow;
+            let toshow;
             if (misc1 == true)
                 toshow = "Enabled";
             else if (misc1 == false)
@@ -650,7 +650,7 @@ function run() {
             finalstring += "<br>";
         }
         if (misc2 != -1) {
-            var toshow;
+            let toshow;
             if (misc2 == true)
                 toshow = "Enabled";
             else if (misc2 == false)
@@ -661,7 +661,7 @@ function run() {
             finalstring += "<br>";
         }
         if (misc3 != -1) {
-            var toshow;
+            let toshow;
             if (misc3 == true)
                 toshow = "Enabled";
             else if (misc3 == false)
@@ -672,7 +672,7 @@ function run() {
             finalstring += "<br>";
         }
         if (misc4 != -1) {
-            var toshow;
+            let toshow;
             if (misc4 == true)
                 toshow = "Enabled";
             else if (misc4 == false)
@@ -683,7 +683,7 @@ function run() {
             finalstring += "<br>";
         }
         if (misc5 != -1) {
-            var toshow;
+            let toshow;
             if (misc5 == true)
                 toshow = "Enabled";
             else if (misc5 == false)
@@ -694,7 +694,7 @@ function run() {
             finalstring += "<br>";
         }
         if (misc6 != -1) {
-            var toshow;
+            let toshow;
             if (misc6 == true)
                 toshow = "Enabled";
             else if (misc6 == false)
@@ -734,12 +734,12 @@ function getRandomVal(array) {
 }
 
 function checkSimParameters() { //run this BEFORE the program selects the options
-    for (var i = 0; i < paidsims.length; i++) {
+    for (let i = 0; i < paidsims.length; i++) {
         if (!document.getElementById(i).checked) {
             paidsims[i] = "X";
         }
     }        
-    for (var i = 0; i < freesims.length; i++) {
+    for (let i = 0; i < freesims.length; i++) {
         if (!document.getElementById(i+66).checked) {
             freesims[i] = "X";
         }
@@ -751,15 +751,15 @@ function getRandomInt(max) {
 }
 
 function toggleAll(set){
-    var aInputs = document.getElementsByTagName('input');
-    for(var i = 0; i < aInputs.length; i++) {
+    let aInputs = document.getElementsByTagName('input');
+    for(let i = 0; i < aInputs.length; i++) {
         aInputs[i].checked = set;
     }
 }
 
 function enableFreeOnly(){
-    var aInputs = document.getElementsByTagName('input');
-    var iteration = 0;
+    let aInputs = document.getElementsByTagName('input');
+    let iteration = 0;
     for (iteration; iteration < paidsims.length; iteration++) {
         aInputs[iteration].checked = false;
     }
@@ -770,7 +770,7 @@ function enableFreeOnly(){
 }
 
 function identical(array) {
-    for(var i = 0; i < array.length - 1; i++) {
+    for(let i = 0; i < array.length - 1; i++) {
         if(array[i] !== array[i+1]) {
             return false;
         }
@@ -780,7 +780,7 @@ function identical(array) {
 
 function validSims(array) {
     let valid = 0;
-    for(var i = 0; i < array.length - 1; i++) {
+    for(let i = 0; i < array.length - 1; i++) {
         if(array[i] !== "X") {
             valid++;
         }
